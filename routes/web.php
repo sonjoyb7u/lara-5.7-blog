@@ -20,11 +20,11 @@ Route::group(['namespace'=>'Site', 'as'=>'site.'],function () {
 });
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'as'=>'admin.', 'middleware'=>['auth', 'admin']], function () {
     Route::get('/dashboard', 'AdminController@index')->name('dashboard');
+    Route::resource('tag', 'TagController');
 
 });
 

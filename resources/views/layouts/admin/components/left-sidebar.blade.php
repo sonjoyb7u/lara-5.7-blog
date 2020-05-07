@@ -10,13 +10,9 @@
                 <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</div>
                 <div class="email">{{ Auth::user()->email }}</div>
                 <div class="btn-group user-helper-dropdown">
-                    <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
+                    <i style="color: #2196F3;" class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                     <ul class="dropdown-menu pull-right">
                         <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="javascript:void(0);"><i class="material-icons">group</i>Followers</a></li>
-                        <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
-                        <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
                         <li role="separator" class="divider"></li>
                         <li>
                             <a class="dropdown-item" href="{{ route('logout') }}"
@@ -37,8 +33,9 @@
         <div class="menu">
             <ul class="list">
                 <li class="header">MAIN NAVIGATION</li>
-                <li class="{{ request()->is('admin/dashboard') ? 'active' : '' }} {{ request()->is('author/dashboard') ? 'active' : '' }}">
-                    <a href="{{ request()->is('admin/dashboard' ? route('admin.dashboard') : route('author.dashboard')) }}">
+                @if(request()->is('admin/*'))
+                <li class="{{ request()->is('admin/dashboard') ? 'active' : '' }}">
+                    <a href="{{ route('admin.dashboard') }}">
                         <i class="material-icons">home</i>
                         <span>Home</span>
                     </a>
@@ -103,6 +100,37 @@
                         </li>
                     </ul>
                 </li>
+                <li class="header">System</li>
+                <li>
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                        <i class="material-icons">input</i><span>{{ __('Logout') }}</span>
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </li>
+                @endif
+                @if(request()->is('author/*'))
+                    <li class="{{ request()->is('author/dashboard') ? 'active' : '' }}">
+                        <a href="{{ route('author.dashboard') }}">
+                            <i class="material-icons">home</i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li class="header">System</li>
+                    <li>
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                            <i class="material-icons">input</i><span>{{ __('Logout') }}</span>
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </li>
+                @endif
             </ul>
         </div>
         <!-- #Menu -->

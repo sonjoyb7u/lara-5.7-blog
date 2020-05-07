@@ -8,6 +8,6 @@ use App\Http\Controllers\Controller;
 class AuthorController extends Controller
 {
     public function index() {
-        return view('backend.admin.index');
+        return view('backend.author.index');
     }
 }

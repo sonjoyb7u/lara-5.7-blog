@@ -1,6 +1,8 @@
 @extends('layouts.admin.master')
 
-@section('title', 'ADMIN DASHBOARD :: ')
+@if(request()->is('admin/dashboard'))
+    @section('title', 'ADMIN DASHBOARD :: ')
+@endif
 
 @section('header')
     @includeIf('layouts.admin.components.header')

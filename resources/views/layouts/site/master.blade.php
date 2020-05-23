@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title'){{ config('app.name', 'LARA-5.7-BLOG') }}</title>
+    <title>@yield('title'){{ config('app.name', 'LARA 5.7 BLOG') }}</title>
     <link rel="icon" href="{{ asset('assets/site/img/Fevicon.png') }}" type="image/png">
 
     <link rel="stylesheet" href="{{ asset('assets/site/vendors/bootstrap/bootstrap.min.css') }}">

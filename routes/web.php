@@ -23,13 +23,13 @@ Auth::routes();
 //Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'as'=>'admin.', 'middleware'=>['auth', 'admin']], function () {
-    Route::get('/dashboard', 'AdminController@index')->name('dashboard');
+    Route::get('dashboard', 'AdminController@index')->name('dashboard');
     Route::resource('tag', 'TagController');
 
 });
 
 Route::group(['prefix'=>'author', 'namespace'=>'Author', 'as'=>'author.', 'middleware'=>['auth', 'author']], function () {
-    Route::get('/dashboard', 'AuthorController@index')->name('dashboard');
+    Route::get('dashboard', 'AuthorController@index')->name('dashboard');
 
 });
 

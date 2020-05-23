@@ -6,7 +6,7 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title'){{ config('app.name', 'LARA-5.7-BLOG') }}</title>
+    <title>@yield('title'){{ config('app.name', 'LARA 5.7 BLOG') }}</title>
     <!-- Favicon-->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <!-- Google Fonts -->
@@ -28,6 +28,7 @@
 </head>
 <body class="">
 
+@if(request()->is('admin/dashboard') || request()->is('author/dashboard'))
 <div class="theme-blue">
     <!-- ## TOP HEADER ## -->
     @yield('header')
@@ -38,14 +39,18 @@
         @yield('main-content')
     </section>
 </div>
+@endif
 
+@if(request()->is('login'))
 <div class="login-page">
     @yield('login-content')
 </div>
-
+@elseif(request()->is('register'))
 <div class="signup-page">
     @yield('register-content')
 </div>
+@endif
+
 
 <!-- Jquery Core Js -->
 <script src="{{ asset('assets/admin/plugins/jquery/jquery.min.js') }}"></script>

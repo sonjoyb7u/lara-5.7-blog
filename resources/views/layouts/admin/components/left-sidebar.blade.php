@@ -33,7 +33,7 @@
         <div class="menu">
             <ul class="list">
                 <li class="header">MAIN NAVIGATION</li>
-                @if(request()->is('admin/*'))
+                @if(request()->is('admin/dashboard'))
                 <li class="{{ request()->is('admin/dashboard') ? 'active' : '' }}">
                     <a href="{{ route('admin.dashboard') }}">
                         <i class="material-icons">home</i>
@@ -137,7 +137,14 @@
         <!-- Footer -->
         <div class="legal">
             <div class="copyright">
-                &copy; {{ date('Y') }} <a href="{{ request()->is('admin/dashboard' ? route('admin.dashboard') : route('author.dashboard')) }}">ADMIN PANEL <strong>[ LARA-5.7-BLOG }</strong></a>.
+                &copy; {{ date('Y') }}
+                <a href="{{ request()->is('admin/dashboard') ? route('admin.dashboard') : route('author.dashboard') }}">
+                    @if(request()->is('admin/dashboard'))
+                    ADMIN PANEL <strong>[ LARA 5.7 BLOG }</strong>
+                    @elseif(request()->is('author/dashboard'))
+                    AUTHOR PANEL <strong>[ LARA 5.7 BLOG }</strong>
+                    @endif
+                </a>.
             </div>
 
         </div>

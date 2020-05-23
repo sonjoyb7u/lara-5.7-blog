@@ -77,12 +77,13 @@
 
 <div class="signup-box">
     <div class="logo">
-        <a href="javascript:void(0);">ADMIN/AUTHOR <b>REGISTER</b></a>
+        <a href="javascript:void(0);" style="margin-top: 15px;"><b>REGISTER</b></a>
     </div>
     <div class="card">
         <div class="body">
             <form method="POST" action="{{ route('register') }}">
                 @csrf
+
                 <div class="msg">Register a new membership</div>
                 <div class="input-group">
                         <span class="input-group-addon">

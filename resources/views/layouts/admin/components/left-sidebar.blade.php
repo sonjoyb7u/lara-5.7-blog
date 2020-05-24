@@ -33,11 +33,11 @@
         <div class="menu">
             <ul class="list">
                 <li class="header">MAIN NAVIGATION</li>
-                @if(request()->is('admin/dashboard'))
+                @if(request()->is('admin/*'))
                 <li class="{{ request()->is('admin/dashboard') ? 'active' : '' }}">
                     <a href="{{ route('admin.dashboard') }}">
-                        <i class="material-icons">home</i>
-                        <span>Home</span>
+                        <i class="material-icons">dashboard</i>
+                        <span>Dashboard</span>
                     </a>
                 </li>
                 <li>
@@ -86,23 +86,23 @@
                         </li>
                     </ul>
                 </li>
-                <li>
-                    <a href="javascript:void(0);" class="menu-toggle">
-                        <i class="material-icons">perm_media</i>
-                        <span>Medias</span>
+                <li class="{{ request()->is('admin/tag', 'admin/tag/*') ? 'active' : '' }}">
+                    <a href="" class="menu-toggle">
+                        <i class="material-icons">label</i>
+                        <span>Tag Section</span>
                     </a>
                     <ul class="ml-menu">
-                        <li>
-                            <a href="pages/medias/image-gallery.html">Image Gallery</a>
+                        <li class="{{ request()->is('admin/tag/create') ? 'active' : '' }}">
+                            <a href="{{ route('admin.tag.create') }}">Add Tag</a>
                         </li>
-                        <li>
-                            <a href="pages/medias/carousel.html">Carousel</a>
+                        <li class="{{ request()->is('admin/tag', 'admin/tag/edit/*') ? 'active' : '' }}">
+                            <a href="{{ route('admin.tag.index') }}">Manage Tag</a>
                         </li>
                     </ul>
                 </li>
                 <li class="header">System</li>
                 <li>
-                    <a class="dropdown-item" href="{{ route('logout') }}"
+                    <a href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
                         <i class="material-icons">input</i><span>{{ __('Logout') }}</span>
@@ -115,13 +115,13 @@
                 @if(request()->is('author/*'))
                     <li class="{{ request()->is('author/dashboard') ? 'active' : '' }}">
                         <a href="{{ route('author.dashboard') }}">
-                            <i class="material-icons">home</i>
-                            <span>Home</span>
+                            <i class="material-icons">dashboard</i>
+                            <span>Dashboard</span>
                         </a>
                     </li>
                     <li class="header">System</li>
                     <li>
-                        <a class="dropdown-item" href="{{ route('logout') }}"
+                        <a href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
                             <i class="material-icons">input</i><span>{{ __('Logout') }}</span>

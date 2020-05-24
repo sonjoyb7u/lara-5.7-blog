@@ -4,15 +4,6 @@
     @section('title', 'AUTHOR DASHBOARD :: ')
 @endif
 
-@section('header')
-    @includeIf('layouts.admin.components.header')
-@endsection
-
-@section('left-sidebar')
-    @includeIf('layouts.admin.components.left-sidebar')
-@endsection
-
-
 @section('main-content')
 
         <div class="card">

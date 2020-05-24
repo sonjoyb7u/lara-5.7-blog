@@ -4,13 +4,9 @@
     @section('title', 'ADMIN DASHBOARD :: ')
 @endif
 
-@section('header')
-    @includeIf('layouts.admin.components.header')
-@endsection
+@push('css')
 
-@section('left-sidebar')
-    @includeIf('layouts.admin.components.left-sidebar')
-@endsection
+@endpush
 
 @section('main-content')
 
@@ -341,4 +337,8 @@
 {{--        </div>--}}
 
 @endsection
+
+@push('js')
+
+@endpush
 

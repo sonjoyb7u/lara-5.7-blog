@@ -20,6 +20,10 @@
     <link href="{{ asset('assets/admin/plugins/animate-css/animate.css') }}" rel="stylesheet" />
     <!-- Morris Chart Css-->
     <link href="{{ asset('assets/admin/plugins/morrisjs/morris.css') }}" rel="stylesheet" />
+    <!-- Sweet Alert Css -->
+    <link href="{{ asset('assets/admin/plugins/sweetalert/sweetalert.css') }}" rel="stylesheet" />
+    <!-- JQuery DataTable Css -->
+    <link href="{{ asset('assets/admin/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css') }}" rel="stylesheet">
     <!-- Custom Css -->
     <link href="{{ asset('assets/admin/css/style.css') }}" rel="stylesheet">
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
@@ -28,12 +32,12 @@
 </head>
 <body class="">
 
-@if(request()->is('admin/dashboard') || request()->is('author/dashboard'))
+@if(request()->is('admin/*') || request()->is('author/*'))
 <div class="theme-blue">
     <!-- ## TOP HEADER ## -->
-    @yield('header')
+    @includeIf('layouts.admin.components.header')
     <!-- ## LEFT SIDEBAR ## -->
-    @yield('left-sidebar')
+    @includeIf('layouts.admin.components.left-sidebar')
     <!-- ## MAIN CONTENT ## -->
     <section class="content">
         @yield('main-content')
@@ -62,6 +66,8 @@
 <script src="{{ asset('assets/admin/plugins/jquery-slimscroll/jquery.slimscroll.js') }}"></script>
 <!-- Waves Effect Plugin Js -->
 <script src="{{ asset('assets/admin/plugins/node-waves/waves.js') }}"></script>
+<!-- Validation Plugin Js -->
+<script src="{{ asset('assets/admin/plugins/jquery-validation/jquery.validate.js') }}"></script>
 <!-- Jquery CountTo Plugin Js -->
 <script src="{{ asset('assets/admin/plugins/jquery-countto/jquery.countTo.js') }}"></script>
 <!-- Morris Plugin Js -->
@@ -77,16 +83,26 @@
 <script src="{{ asset('assets/admin/plugins/flot-charts/jquery.flot.time.js') }}"></script>
 <!-- Sparkline Chart Plugin Js -->
 <script src="{{ asset('assets/admin/plugins/jquery-sparkline/jquery.sparkline.js') }}"></script>
-<!-- Validation Plugin Js -->
-<script src="{{ asset('assets/admin/plugins/jquery-validation/jquery.validate.js') }}"></script>
+<!-- Jquery DataTable Plugin Js -->
+<script src="{{ asset('assets/admin/plugins/jquery-datatable/jquery.dataTables.js') }}"></script>
+<script src="{{ asset('assets/admin/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js') }}"></script>
+<script src="{{ asset('assets/admin/plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js') }}"></script>
+<script src="{{ asset('assets/admin/plugins/jquery-datatable/extensions/export/buttons.flash.min.js') }}"></script>
+<script src="{{ asset('assets/admin/plugins/jquery-datatable/extensions/export/jszip.min.js') }}"></script>
+<script src="{{ asset('assets/admin/plugins/jquery-datatable/extensions/export/pdfmake.min.js') }}"></script>
+<script src="{{ asset('assets/admin/plugins/jquery-datatable/extensions/export/vfs_fonts.js') }}"></script>
+<script src="{{ asset('assets/admin/plugins/jquery-datatable/extensions/export/buttons.html5.min.js') }}"></script>
+<script src="{{ asset('assets/admin/plugins/jquery-datatable/extensions/export/buttons.print.min.js') }}"></script>
 <!-- Custom Js -->
 <script src="{{ asset('assets/admin/js/admin.js') }}"></script>
+<script src="{{ asset('assets/admin/js/pages/tables/jquery-datatable.js') }}"></script>
 <script src="{{ asset('assets/admin/js/pages/index.js') }}"></script>
 <script src="{{ asset('assets/admin/js/pages/examples/sign-in.js') }}"></script>
 <script src="{{ asset('assets/admin/js/pages/examples/sign-up.js') }}"></script>
 <!-- Demo Js -->
 <script src="{{ asset('assets/admin/js/demo.js') }}"></script>
 @stack('js')
+
 </body>
 </html>
 

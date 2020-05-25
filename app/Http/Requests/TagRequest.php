@@ -13,7 +13,7 @@ class TagRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,39 @@ class TagRequest extends FormRequest
      */
     public function rules()
     {
+        if($this->method() === 'PUT') {
+            $rules = [
+                'name' => 'string|min:3|max:40',
+            ];
+
+        } elseif ($this->method() === 'PATCH') {
+            $rules = [
+                'name' => 'string|min:3|max:40',
+            ];
+
+        } else {
+            $rules = [
+                'name' => 'required|string|min:3|max:40',
+            ];
+
+        }
+
+        return $rules;
+
+    }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages()
+    {
         return [
-            //
+            'name.required' => 'Tag Name is required',
+            'name.string' => 'Tag Name must be Alpabatic Charecter\'s!',
+            'name.min' => 'Tag Name must be minimum 3 charecter\'s!',
+            'name.max' => 'Tag Name must be less than 40 charecter\'s!'
         ];
     }
 }

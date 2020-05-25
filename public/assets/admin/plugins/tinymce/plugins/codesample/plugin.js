@@ -510,7 +510,7 @@ if (!_self.document) {
 		return _self.Prism;
 	}
  	// In worker
-	_self.addEventListener('message', function(evt) {
+	_self.addEventListener('show-message.blade.php', function(evt) {
 		var message = JSON.parse(evt.data),
 		    lang = message.language,
 		    code = message.code,

@@ -28,9 +28,11 @@
     <link href="{{ asset('assets/admin/css/style.css') }}" rel="stylesheet">
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="{{ asset('assets/admin/css/themes/all-themes.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('assets/admin/plugins/toastr/css/toastr.min.css') }}">
     @stack('css')
+
 </head>
-<body class="">
+<body class="theme-blue">
 
 @if(request()->is('admin/*') || request()->is('author/*'))
 <div class="theme-blue">
@@ -73,6 +75,7 @@
 <!-- Morris Plugin Js -->
 <script src="{{ asset('assets/admin/plugins/raphael/raphael.min.js') }}"></script>
 <script src="{{ asset('assets/admin/plugins/morrisjs/morris.js') }}"></script>
+<script src="{{ asset('assets/admin/plugins/sweetalert2/sweetalert2.all.min.js') }}"></script>
 <!-- ChartJs -->
 <script src="{{ asset('assets/admin/plugins/chartjs/Chart.bundle.js') }}"></script>
 <!-- Flot Charts Plugin Js -->
@@ -101,6 +104,19 @@
 <script src="{{ asset('assets/admin/js/pages/examples/sign-up.js') }}"></script>
 <!-- Demo Js -->
 <script src="{{ asset('assets/admin/js/demo.js') }}"></script>
+<script src="{{ asset('assets/admin/plugins/toastr/js/toastr.min.js') }}"></script>
+{!! Toastr::message() !!}
+<script src="{{ asset('assets/admin/js/custom/js/custom.js') }}"></script>
+<script>
+    @if ($errors->any())
+    @foreach ($errors->all() as $error)
+        toastr.error('{{ $error }}', 'Error', {
+            closeButton: true,
+            progressBar: true,
+        });
+    @endforeach
+    @endif
+</script>
 @stack('js')
 
 </body>

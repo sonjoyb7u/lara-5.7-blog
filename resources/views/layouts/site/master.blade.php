@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{ asset('assets/site/vendors/owl-carousel/owl.carousel.min.css') }}">
 
     <link rel="stylesheet" href="{{ asset('assets/site/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/site/vendors/toastr/css/toastr.min.css') }}">
     @stack('css')
 </head>
 <body>
@@ -61,6 +62,8 @@
 <script src="{{ asset('assets/site/js/jquery.ajaxchimp.min.js') }}"></script>
 <script src="{{ asset('assets/site/js/mail-script.js') }}"></script>
 <script src="{{ asset('assets/site/js/main.js') }}"></script>
+<script src="{{ asset('assets/site/vendors/toastr/js/toastr.min.js') }}"></script>
+{!! Toastr::message() !!}
 @stack('js')
 </body>
 </html>

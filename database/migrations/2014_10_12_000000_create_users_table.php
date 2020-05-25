@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('password', 100);
             $table->string('image', 150)->default('default_user.png');
             $table->text('bio')->nullable();
+            $table->enum('status', ['active', 'inactive'])->default('inactive');
             $table->rememberToken();
             $table->timestamps();
 

@@ -23,8 +23,14 @@ Auth::routes();
 //Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'as'=>'admin.', 'middleware'=>['auth', 'admin']], function () {
+    // AdminController Dashboard...
     Route::get('dashboard', 'AdminController@index')->name('dashboard');
+    // TagController...
     Route::resource('tag', 'TagController');
+    Route::get('tag/active/{id}', 'TagController@activeStatus')->name('tag.active');
+    Route::get('tag/inactive/{id}', 'TagController@inactiveStatus')->name('tag.inactive');
+    // CategoryController...
+//    Route::get('category', 'CategoryController');
 
 });
 

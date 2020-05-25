@@ -34328,7 +34328,7 @@ define("tinymce/file/Uploader", [
 
 					handler(blobInfoToData(blobInfo), success, failure, progress);
 				} catch (ex) {
-					resolve(handlerFailure(blobInfo, ex.message));
+					resolve(handlerFailure(blobInfo, ex.show));
 				}
 			});
 		}

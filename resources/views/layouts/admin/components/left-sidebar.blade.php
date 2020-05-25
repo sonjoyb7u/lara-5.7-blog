@@ -138,10 +138,10 @@
         <div class="legal">
             <div class="copyright">
                 &copy; {{ date('Y') }}
-                <a href="{{ request()->is('admin/dashboard') ? route('admin.dashboard') : route('author.dashboard') }}">
-                    @if(request()->is('admin/dashboard'))
+                <a href="{{ request()->is('admin/*') ? route('admin.dashboard') : route('author.dashboard') }}">
+                    @if(request()->is('admin/*'))
                     ADMIN PANEL <strong>[ LARA 5.7 BLOG }</strong>
-                    @elseif(request()->is('author/dashboard'))
+                    @elseif(request()->is('author/*'))
                     AUTHOR PANEL <strong>[ LARA 5.7 BLOG }</strong>
                     @endif
                 </a>.

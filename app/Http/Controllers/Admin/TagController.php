@@ -61,7 +61,7 @@ class TagController extends Controller
         } catch (Exception $exception) {
 //            dd($exception);
             getAlertMessage('danger', 'Error : ' . $exception->getMessage());
-            Toastr::error("'" . $exception->getMessage() . "'", 'Error');
+//            Toastr::error("'" . $exception->getMessage() . "'", 'Error');
             return redirect()->route('admin.tag.create');
         }
 
@@ -122,7 +122,7 @@ class TagController extends Controller
         } catch (Exception $exception) {
 //            dd($exception);
             getAlertMessage('danger', 'Error : ' . $exception->getMessage());
-            Toastr::error($exception->getMessage(), 'Error');
+//            Toastr::error($exception->getMessage(), 'Error');
             return redirect()->route('admin.tag.edit');
         }
 

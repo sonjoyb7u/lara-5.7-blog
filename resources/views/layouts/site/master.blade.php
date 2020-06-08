@@ -15,7 +15,8 @@
     <link rel="stylesheet" href="{{ asset('assets/site/vendors/linericon/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/site/vendors/owl-carousel/owl.theme.default.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/site/vendors/owl-carousel/owl.carousel.min.css') }}">
-
+    <!-- Sweet Alert Css -->
+    <link href="{{ asset('assets/admin/plugins/sweetalert/sweetalert.css') }}" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('assets/site/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/site/vendors/toastr/css/toastr.min.css') }}">
     @stack('css')
@@ -60,10 +61,22 @@
 <script src="{{ asset('assets/site/vendors/bootstrap/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('assets/site/vendors/owl-carousel/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('assets/site/js/jquery.ajaxchimp.min.js') }}"></script>
+<script src="{{ asset('assets/admin/plugins/sweetalert2/sweetalert2.all.min.js') }}"></script>
 <script src="{{ asset('assets/site/js/mail-script.js') }}"></script>
 <script src="{{ asset('assets/site/js/main.js') }}"></script>
 <script src="{{ asset('assets/site/vendors/toastr/js/toastr.min.js') }}"></script>
 {!! Toastr::message() !!}
+<script>
+    // Toastr Message generate js...
+    @if ($errors->any())
+    @foreach ($errors->all() as $error)
+    toastr.error('{{ $error }}', 'Error', {
+        closeButton: true,
+        progressBar: true,
+    });
+    @endforeach
+    @endif
+</script>
 @stack('js')
 </body>
 </html>

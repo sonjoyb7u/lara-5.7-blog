@@ -30,7 +30,9 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'as'=>'admin.', 'middlewa
     Route::get('tag/active/{id}', 'TagController@activeStatus')->name('tag.active');
     Route::get('tag/inactive/{id}', 'TagController@inactiveStatus')->name('tag.inactive');
     // CategoryController...
-//    Route::get('category', 'CategoryController');
+    Route::resource('category', 'CategoryController');
+    Route::get('category/active/{id}', 'CategoryController@activeStatus')->name('category.active');
+    Route::get('category/inactive/{id}', 'CategoryController@inactiveStatus')->name('category.inactive');
 
 });
 

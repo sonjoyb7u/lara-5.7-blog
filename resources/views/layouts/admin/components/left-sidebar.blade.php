@@ -100,6 +100,20 @@
                         </li>
                     </ul>
                 </li>
+                    <li class="{{ request()->is('admin/category', 'admin/category/*') ? 'active' : '' }}">
+                        <a href="" class="menu-toggle">
+                            <i class="material-icons">label</i>
+                            <span>Category Section</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li class="{{ request()->is('admin/category/create') ? 'active' : '' }}">
+                                <a href="{{ route('admin.category.create') }}">Add Category</a>
+                            </li>
+                            <li class="{{ request()->is('admin/category', 'admin/category/edit/*') ? 'active' : '' }}">
+                                <a href="{{ route('admin.category.index') }}">Manage Category</a>
+                            </li>
+                        </ul>
+                    </li>
                 <li class="header">System</li>
                 <li>
                     <a href="{{ route('logout') }}"

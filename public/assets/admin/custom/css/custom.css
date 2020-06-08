@@ -1,0 +1,19 @@
+ /* Category Section css... */
+.cat-h2 {
+    display: inline-block;
+}
+.cat-add-btn {
+    float: right;
+    cursor: pointer;
+    margin-right: 30px;
+    margin-top: -3px;
+}
+#images {
+    display: none;
+}
+.images img{
+    width:100px;
+    height: 80px;
+    /*display: none;*/
+    margin: 7px;
+}

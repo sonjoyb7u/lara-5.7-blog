@@ -22,10 +22,13 @@
     <link href="{{ asset('assets/admin/plugins/morrisjs/morris.css') }}" rel="stylesheet" />
     <!-- Sweet Alert Css -->
     <link href="{{ asset('assets/admin/plugins/sweetalert/sweetalert.css') }}" rel="stylesheet" />
+    <!-- Magnific Popup core CSS file -->
+    <link rel="stylesheet" href="{{ asset('assets/admin/plugins/magnific-popup/css/magnific-popup.min.css') }}">
     <!-- JQuery DataTable Css -->
     <link href="{{ asset('assets/admin/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css') }}" rel="stylesheet">
     <!-- Custom Css -->
     <link href="{{ asset('assets/admin/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/admin/custom/css/custom.css') }}" rel="stylesheet">
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="{{ asset('assets/admin/css/themes/all-themes.css') }}" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('assets/admin/plugins/toastr/css/toastr.min.css') }}">
@@ -76,6 +79,8 @@
 <script src="{{ asset('assets/admin/plugins/raphael/raphael.min.js') }}"></script>
 <script src="{{ asset('assets/admin/plugins/morrisjs/morris.js') }}"></script>
 <script src="{{ asset('assets/admin/plugins/sweetalert2/sweetalert2.all.min.js') }}"></script>
+<!-- Magnific Popup core JS file -->
+<script src="{{ asset('assets/admin/plugins/magnific-popup/js/jquery.magnific-popup.min.js') }}"></script>
 <!-- ChartJs -->
 <script src="{{ asset('assets/admin/plugins/chartjs/Chart.bundle.js') }}"></script>
 <!-- Flot Charts Plugin Js -->
@@ -106,8 +111,8 @@
 <script src="{{ asset('assets/admin/js/demo.js') }}"></script>
 <script src="{{ asset('assets/admin/plugins/toastr/js/toastr.min.js') }}"></script>
 {!! Toastr::message() !!}
-<script src="{{ asset('assets/admin/js/custom/js/custom.js') }}"></script>
 <script>
+    // Toastr Message generate js...
     @if ($errors->any())
     @foreach ($errors->all() as $error)
         toastr.error('{{ $error }}', 'Error', {
@@ -117,6 +122,7 @@
     @endforeach
     @endif
 </script>
+<script src="{{ asset('assets/admin/custom/js/custom.js') }}"></script>
 @stack('js')
 
 </body>

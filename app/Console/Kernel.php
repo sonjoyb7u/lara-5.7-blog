@@ -2,6 +2,9 @@
 
 namespace App\Console;
 
+
+use App\Console\Commands\DbBackupFileMail;
+use App\Console\Commands\EmailInactiveUsers;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -13,7 +16,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        EmailInactiveUsers::class,
+        DbBackupFileMail::class,
     ];
 
     /**
@@ -24,8 +28,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        $schedule->command('email:inactive-users')->hourlyAt(20);
+        $schedule->command('database:backup-file-mail')->hourlyAt(20);
     }
 
     /**
